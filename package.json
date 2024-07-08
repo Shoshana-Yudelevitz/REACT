@@ -16,7 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepush": "npm test"
   },
   "eslintConfig": {
     "extends": [
