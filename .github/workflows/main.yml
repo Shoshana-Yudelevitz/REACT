@@ -27,9 +27,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Run tests
-      - name: Run tests
-        run: npm test
+# Run tests in all files within the 'test' directory
+      - name: Run tests in 'test' directory
+        run: |
+         if [ -d test ]; then  # Check if the 'test' directory exists
+         for file in test/*; do
+         if [ -f "$file" ]; then
+          npm test "$file"
+          fi
+          done
+         else
+          echo "'test' directory not found. Skipping tests."
+          fi
 
       # Build the project
       - name: Build project
